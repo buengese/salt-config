@@ -1,5 +1,5 @@
-{% set node_config = salt['pillar.get']('nodes:' ~ grains.id) %}
-{% for user in salt['pillar.get']('users') %}
+{% set node_config = salt['pillar.get']('node') %}
+{% for user in node_config.get('users', []) %}
 test:
    module.run:
       - name: test.echo
