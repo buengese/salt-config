@@ -1,4 +1,4 @@
 base:
     '*':
-      - vim
       - nettools
+      - users
