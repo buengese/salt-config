@@ -1,4 +1,5 @@
 base:
     '*':
       - nettools
+      - ssh
       - users

@@ -1,6 +1,6 @@
 base:
     '*':
       - globals
-      - ssh
+      - keys
     'salt*':
       - nodes.salt
