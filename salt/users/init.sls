@@ -26,7 +26,7 @@ ssh-{{ user }}:
     - group: {{ user }}
     - mode:  700
 
-/authorized_keys:
+{{ path }}/authorized_keys:
   file.managed:
     - source: salt://users/authorized_keys.tmpl
     - template: jinja
