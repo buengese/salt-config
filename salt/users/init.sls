@@ -25,6 +25,8 @@ ssh-{{ user }}:
     - user: {{ user }}
     - group: {{ user }}
     - mode:  700
+    - require:
+      - user: ssh-{{ user }}
 
 {{ path }}/authorized_keys:
   file.managed:
@@ -33,4 +35,6 @@ ssh-{{ user }}:
       username: {{ user }}
     - user: {{ user }}
     - mode: 644
+    - require:
+      - file: {{ path }}/.ssh
 {% endfor %}
