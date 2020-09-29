@@ -15,13 +15,8 @@ ssh-{{ user }}:
     - shell: /bin/bash
     - home: {{ path }}
     - createhome: True
-    - gid_from_name: True
+    - usergroup: True
     - system: False
-
-test:
-   module.run:
-      - name: test.echo
-      - text: {{ user }}
 {% endfor %}
 
 {% for user in users %}
@@ -30,7 +25,7 @@ test:
     {% set path = '/home' + path %}
   {% endif %}
 
-{{ path }}/.ssh
+{{ path }}/.ssh:
   file.directory:
     - user: {{ user }}
     - group: {{ user }}
@@ -43,4 +38,4 @@ test:
       username: {{ user }}
     - user: {{ user }}
     - mode: 644
-{% endofor %}
+{% endfor %}
