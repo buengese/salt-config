@@ -28,7 +28,7 @@ ssh-{{ user }}:
     - require:
       - user: ssh-{{ user }}
 
-{{ path }}/authorized_keys:
+{{ path }}/.ssh/authorized_keys:
   file.managed:
     - source: salt://users/authorized_keys.tmpl
     - template: jinja
