@@ -5,10 +5,12 @@
   {% do users.append(user) %}
 {% endfor %}
 
-{% for user in users if user not in ['root'] %}
-  {% set path = '/home/' + user %}
+{% for user in users %}
+  {% set path = '/' + user %}
+  {% if user not in ['root'] %}
+    {% set path = '/home' + path %}
+  {% endif %}
 
-{# Create user if not present#}
 ssh-{{ user }}:
   user.present:
     - name: {{ user }}
@@ -17,13 +19,6 @@ ssh-{{ user }}:
     - createhome: True
     - usergroup: True
     - system: False
-{% endfor %}
-
-{% for user in users %}
-  {% set path = '/' + user %}
-  {% if user not in ['root'] %}
-    {% set path = '/home' + path %}
-  {% endif %}
 
 {{ path }}/.ssh:
   file.directory:
