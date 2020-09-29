@@ -24,10 +24,23 @@ test:
       - text: {{ user }}
 {% endfor %}
 
+{% for user in users %}
+  {% set path = '/' + user %}
+  {% if user not in ['root'] %}
+    {% set path = '/home' + path %}
+  {% endif %}
+
+{{ path }}/.ssh
+  file.directory:
+    - user: {{ user }}
+    - group: {{ user }}
+    - mode:  700
+
 /authorized_keys:
   file.managed:
     - source: salt://users/authorized_keys.tmpl
     - template: jinja
-      username: root
-    - user: root
+      username: {{ user }}
+    - user: {{ user }}
     - mode: 644
+{% endofor %}
