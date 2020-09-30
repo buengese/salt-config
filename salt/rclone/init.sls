@@ -1,4 +1,4 @@
-{% from "salt/map.jinja" import salt with context %}
+{% from "rclone/map.jinja" import rclone with context %}
 
 rclone:
   pkg.installed:
