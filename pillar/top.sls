@@ -4,3 +4,5 @@ base:
       - keys
     'salt*':
       - nodes.salt
+    'deb*'
+      - nodes.thorium
