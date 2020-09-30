@@ -5,31 +5,32 @@ rclone:
     - sources:
         - rclone: {{ rclone.pkg }}
 
-{% set user = salt['pillar.get']('node:rclone:user') %}
-  {% set path = '/' + user %}
-  {% if user not in ['root'] %}
-    {% set path = '/home' + path %}
-  {% endif %}
+{% set user = pillar['node']['rclone']['user'] %}
+{% set path = '/' + user %}
+{% if user not in ['root'] %}
+  {% set path = '/home' + path %}
+{% endif %}
+
+{% if user not in salt['user.list_users']() and raise('user must exist') %}
+{% endif %}
 
 {{ path }}/.config:
   file.directory:
     - user: {{ user }}
-    - group: {{ group }}
+    - group: {{ user }}
     - mode: 755
-    - rquire:
-      - user: ssh-{{ user }}
 
 {{ path }}/.config/rclone:
   file.directory:
     - user: {{ user }}
-    - group: {{ group }}
+    - group: {{ user }}
     - mode: 755
     - require:
       - file: {{ path }}/.config
 
 {{ path }}/.config/rclone/rclone.conf:
   file.managed:
-    - source: salt://rclone/rclone.conf
+    - source: salt://rclone/rclone.conf.tmpl
     - template: jinja
     - user: {{ user }}
     - mode: 750

@@ -1,1 +1,1 @@
-{{ salt['pillar.get']('node:rclone:config') | b64decode }}
+{{ salt['hashutil.base64_decodestring'](salt['pillar.get']('node:rclone:config')) }}
