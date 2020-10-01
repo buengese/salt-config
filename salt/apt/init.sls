@@ -10,14 +10,16 @@
     - source: salt://apt/sources.list.{{ grains.os }}.{{ grains.oscodename }}
 {% endif %}
 
+apt-transport-https:
+  pkg.installed
+
 /etc/apt/sources.list.d/saltstack.list:
   file.managed:
     - source: salt://apt/saltstack.list.{{ grains.os }}.{{ grains.oscodename }}
+  reuire:
+    pkg: apt-transport-https
 
 
 /etc/cron.d/apt:
   file.managed:
     - source: salt://apt/update_apt.cron
-
-apt-transport-https:
-  pkg.installed
