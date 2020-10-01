@@ -16,7 +16,7 @@
 
 
 /etc/cron.d/apt:
-  file.manged:
+  file.managed:
     - source: salt://apt/update_apt.cron
 
 apt-transport-https:
