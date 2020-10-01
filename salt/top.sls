@@ -1,6 +1,5 @@
 base:
     '*':
-      - nettools
       - timezone
       - ntp
       - ssh
