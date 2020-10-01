@@ -20,7 +20,7 @@ mongodb:
   pkg.installed:
     - pkgs:
       - mongodb-server: 3.6.3-0ubuntu1.1
-      - mongodb-client: 3.6.3-0ubuntu1.1
+      - mongodb-clients: 3.6.3-0ubuntu1.1
 
 java:
   pkg.installed:
