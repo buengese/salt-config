@@ -42,10 +42,10 @@ generate-dhparam:
 {% set node_config = salt['pillar.get']('node') %}
 {% for cn, cert_config in node_config.get('certs', {}).items() %}
   {% if 'cert' in cert_config and 'privkey' in cert_config %}
-    {% set pillar_name = 'node:certs:cn' %}
+    {% set pillar_name = 'node:certs:' ~ cn %}
   {% endif %}
   {% if pillar_name != None %}
-    {% do certs.update({cn : pillar_name }) %}
+    {% do certs.update({ cn : pillar_name }) %}
   {% endif %}
 {% endfor %}
 
