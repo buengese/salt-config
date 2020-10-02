@@ -19,8 +19,8 @@ unifi-repo:
 mongodb:
   pkg.installed:
     - pkgs:
-      - mongodb-server: 3.6.3-0ubuntu1.1
-      - mongodb-clients: 3.6.3-0ubuntu1.1
+      - mongodb-server: 1:3.6.3-0ubuntu1.1
+      - mongodb-clients: 1:3.6.3-0ubuntu1.1
 
 java:
   pkg.installed:

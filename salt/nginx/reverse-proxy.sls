@@ -2,10 +2,10 @@
 # Reverse proxy
 #
 
-include: nginx.base
+include: 
+  - nginx.base
 
-{% set node_config = salt['pillar.get']('node') %}
-{% set domain = node_config.get('reverse_proxy:domain') %}
+{% set domain = pillar['node']['reverse_proxy']['domain'] %}
 /etc/nginx/sites-available/{{ domain }}:
   file.managed:
     - source: salt://nginx/reverse_proxy.tmpl
@@ -15,11 +15,11 @@ include: nginx.base
     - mode: 644
     - require:
       - pkg: nginx
+    - watch_in:
+      - cmd: nginx-configtest
 
 /etc/nginx/sites-enabled/{{ domain }}:
   file.symlink:
     - target: /etc/nginx/sites-available/{{ domain }}
     - require:
       - file: /etc/nginx/sites-available/{{ domain }}
-    - watch_in:
-      - cmd: nginx-configtest

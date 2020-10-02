@@ -19,7 +19,7 @@ nginx:
     - watch_in:
       - cmd: nginx-configtest
 
-/etc/nginx/site-enabled/default:
+/etc/nginx/sites-enabled/default:
   file.absent:
     - watch_in:
       - cmd: nginx-configtest

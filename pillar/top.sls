@@ -6,4 +6,5 @@ base:
       - nodes.salt
     'deb*':
       - nodes.thorium
+    'unifi*':
       - nodes.unifi
