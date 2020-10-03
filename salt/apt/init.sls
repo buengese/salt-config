@@ -1,6 +1,8 @@
 #
 # APT
 #
+include:
+  - apt.transport-https
 
 /etc/apt/sources.list:
   file.managed:
@@ -9,9 +11,6 @@
 {% else %}
     - source: salt://apt/sources.list.{{ grains.os }}.{{ grains.oscodename }}
 {% endif %}
-
-apt-transport-https:
-  pkg.installed
 
 /etc/apt/sources.list.d/saltstack.list:
   file.managed:
