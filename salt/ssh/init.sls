@@ -16,7 +16,9 @@ ssh:
 /etc/ssh/sshd_config:
   file.managed:
     - source:
+{% if grains['kernel'] == 'Linux' %}
       - salt://ssh/sshd_config.{{ grains.os }}.{{ grains.oscodename }}
+{% endif %}
       - salt://ssh/sshd_config.{{ grains.os }}
       - salt://ssh/sshd_config
     - user: root
