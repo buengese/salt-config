@@ -8,5 +8,5 @@ base:
       - nodes.thorium
     'unifi*':
       - nodes.unifi
-    'irc*'
+    'irc*':
       - nodes.irc

@@ -6,11 +6,12 @@ base:
       - apt
       - unattended-upgrades
       - certs
-    'unifi*'
+    'unifi*':
       - unifi
       - nginx.reverse-proxy
-    'irc*'
+    'irc*':
+      - nodejs
       - thelounge
       - nginx.reverse-proxy
-    'thorium*'
+    'thorium*':
       - blacklist

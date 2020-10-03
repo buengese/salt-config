@@ -10,6 +10,6 @@ unattended-upgrades:
   file.managed:
     - source: salt://unattended-upgrades/20auto-upgrades
 
-/etc/apt/apt.conf.d/50unattend-upgrades:
+/etc/apt/apt.conf.d/50unattended-upgrades:
   file.managed:
-    - source: salt://unattended-upgrades/50unattend-upgrades.{{ grains }}.{{ grains.oscodename }}
+    - source: salt://unattended-upgrades/50unattended-upgrades.{{ grains.os }}.{{ grains.oscodename }}

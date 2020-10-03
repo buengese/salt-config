@@ -9,6 +9,7 @@ nodejs:
     - key_url: salt://nodejs/nodesource.gpg.key
     - file: /etc/apt/sources.list.d/nodesource.list
     - clean_file: True
+    - refresh: True
     - require_in:
       - pkg: nodejs
     - require:

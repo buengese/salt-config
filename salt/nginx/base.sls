@@ -7,7 +7,6 @@ nginx:
     - name: nginx
   service.running:
     - enable: True
-    - reload: True
     - reuire:
       - pkg: nginx
     - watch:
