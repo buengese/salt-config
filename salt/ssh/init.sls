@@ -4,7 +4,7 @@
 #
 
 ssh:
-{% if grains['ḱernel'] == 'Linux' %}
+{% if grains['kernel'] == 'Linux' %}
   pkg.installed:
     - name: {{ ssh.pkg }}
 {% endif %}
