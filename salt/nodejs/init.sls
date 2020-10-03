@@ -7,6 +7,7 @@ nodejs:
     - humanname: nodejs
     - name: deb https://deb.nodesource.com/node_13.x {{ grains.oscodename }} main
     - key_url: salt://nodejs/nodesource.gpg.key
+    - file: /etc/apt/sources.list.d/nodesource.list
     - clean_file: True
     - require_in:
       - pkg: nodejs
