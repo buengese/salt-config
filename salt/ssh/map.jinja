@@ -1,16 +1,16 @@
 {% set ssh = salt['grains.filter_by']({
 	'Debian': {
-		'pkg': 'openssh-server'
-		'service': 'ssh'
+		'pkg': 'openssh-server',
+		'service': 'ssh',
 		'group': 'root'
 	},
 	'RedHat': {
-		'pkg': 'openssh-server'
-		'service': 'ssh'
+		'pkg': 'openssh-server',
+		'service': 'ssh',
 		'group': 'root'
 	},
 	'FreeBSD': {
-		'service': 'sshd'
+		'service': 'sshd',
 		'group': 'wheel'
 	}
 }) %}
