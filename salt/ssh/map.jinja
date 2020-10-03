@@ -1,0 +1,11 @@
+{% set ssh = salt['grains.filter_by']({
+	'Debian': {
+		'service': 'ssh'
+	},
+	'RedHat': {
+		'service': 'ssh'
+	},
+	'FreeBSD': {
+		'service': 'sshd'
+	}
+}) %}

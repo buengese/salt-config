@@ -1,11 +1,15 @@
+{% from "ssh/map.jinja" import ssh with context %}
 #
 # SSH daemon configuration
 #
 
 ssh:
+{% if grains['os_family'] == 'Debian' %}
   pkg.installed:
     - name: "openssh-server"
+{% endif %}
   service.running:
+    - name: {{ ssh.service }}
     - enable: True
     - reload: True
 
@@ -13,6 +17,7 @@ ssh:
   file.managed:
     - source:
       - salt://ssh/sshd_config.{{ grains.os }}.{{ grains.oscodename }}
+      - salt://ssh/sshd_config.{{ grains.os }}
       - salt://ssh/sshd_config
     - user: root
     - group: root
