@@ -4,9 +4,9 @@
 #
 
 ssh:
-{% if grains['os_family'] == 'Debian' %}
+{% if grains['ḱernel'] == 'Linux' %}
   pkg.installed:
-    - name: "openssh-server"
+    - name: {{ ssh.pkg }}
 {% endif %}
   service.running:
     - name: {{ ssh.service }}
@@ -22,7 +22,7 @@ ssh:
       - salt://ssh/sshd_config.{{ grains.os }}
       - salt://ssh/sshd_config
     - user: root
-    - group: root
+    - group: {{ ssh.group }}
     - mode: 644
     - watch_in:
       - service: ssh
