@@ -18,7 +18,7 @@
 ssh-{{ user }}:
   user.present:
     - name: {{ user }}
-    - shell: /bin/bash
+    - shell: bash
     - home: {{ path }}
     - createhome: True
     - usergroup: True
