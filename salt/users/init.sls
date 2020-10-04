@@ -1,3 +1,4 @@
+{% from "users/map.jinja" import settings with context %}
 {% set node_config = salt['pillar.get']('node') %}
 
 {% set users = ['root'] %}
@@ -18,7 +19,7 @@
 ssh-{{ user }}:
   user.present:
     - name: {{ user }}
-    - shell: bash
+    - shell: {{ settings.shell }}
     - home: {{ path }}
     - createhome: True
     - usergroup: True
