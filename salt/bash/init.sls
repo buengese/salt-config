@@ -1,0 +1,6 @@
+#
+# Bash
+#
+
+bash:
+  pkg.installed: []
