@@ -6,6 +6,10 @@
 {% endfor %}
 
 {% for user in users %}
+  {% set group = user %}
+  {% if user in ['root'] and grains['kernel'] in ['FreeBSD'] %}
+    {% set group = 'wheel' %}
+  {% endif %}
   {% set path = '/' + user %}
   {% if user not in ['root'] %}
     {% set path = '/home' + path %}
@@ -23,7 +27,7 @@ ssh-{{ user }}:
 {{ path }}/.ssh:
   file.directory:
     - user: {{ user }}
-    - group: {{ user }}
+    - group: {{ group }}
     - mode:  700
     - require:
       - user: ssh-{{ user }}
@@ -34,6 +38,7 @@ ssh-{{ user }}:
     - template: jinja
       username: {{ user }}
     - user: {{ user }}
+#   - group: {{ group }}
     - mode: 644
     - require:
       - file: {{ path }}/.ssh
