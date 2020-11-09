@@ -14,7 +14,7 @@ unbound:
     - require:
       - pkg: unbound
 
-/usr/local/etc/unbound/domainoverrides2.conf:
+/usr/local/etc/unbound/domainoverrides.conf:
     file.managed:
     - source: salt://unbound/domainoverrides.conf.tmpl
     - template: jinja
