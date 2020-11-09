@@ -10,3 +10,5 @@ base:
       - nodes.unifi
     'irc*':
       - nodes.irc
+    'dns-secure*':
+      - nodes.dns-secure
