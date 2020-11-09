@@ -19,13 +19,13 @@ server:
 	# number of threads to create. 1 disables threading.
 	num-threads: 1
 
-	interface: {{ grains['fqdn_ip4'] }}
+	interface: {{ grains['fqdn_ip4'][0] }}
 	port: 53
 
 	# specify the interfaces to send outgoing queries to authoritative
 	# server from by ip-address. If none, the default (all) interface
 	# is used. Specify every interface on a 'outgoing-interface:' line.
-	outgoing-interface: {{ grains['fqdn_ip4'] }}
+	outgoing-interface: {{ grains['fqdn_ip4'][0] }}
 
 	# number of ports to allocate per thread, determines the size of the
 	# port range that can be open simultaneously.  About double the
