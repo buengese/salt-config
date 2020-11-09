@@ -6,7 +6,7 @@ unbound:
 
 /usr/local/etc/unbound/unbound.conf:
     file.managed:
-    - source: salt://unbound.conf.tmpl
+    - source: salt://unbound/unbound.conf.tmpl
     - template: jinja
     - user: unbound
     - group: wheel
@@ -16,7 +16,7 @@ unbound:
 
 /usr/local/etc/unbound/domainoverrides2.conf:
     file.managed:
-    - source: salt://domainoverrides.conf.tmpl
+    - source: salt://unbound/domainoverrides.conf.tmpl
     - template: jinja
     - user: unbound
     - group: wheel
