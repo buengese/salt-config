@@ -14,3 +14,12 @@ unbound:
     - require:
       - pkg: unbound
 
+/usr/local/etc/unbound/domainoverrides2.conf:
+    file.managed:
+    - source: salt://domainoverrides.conf.tmpl
+    - template: jinja
+    - user: unbound
+    - group: wheel
+    - mode: 644
+    - require:
+      - pkg: unbound
