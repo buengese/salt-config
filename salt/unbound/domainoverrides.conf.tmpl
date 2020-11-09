@@ -1,8 +1,7 @@
 {% set unbound_config = salt['pillar.get']('node:unbound') %}
-{%- do salt.log.error(unbound_config) -%}
-{% for domain in unbound_config.get('domainoverrides', []) %}
+{% for domain, ip in unbound_config.get('domainoverrides').items() %}
 {%- do salt.log.error(domain) -%}
 forward-zone:
         name: {{ domain }}
-        forward-addr: {{ salt['pillar.get']('node:unbound:domain') }} 
+        forward-addr: {{ ip }}
 {% endfor %}
