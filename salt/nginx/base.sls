@@ -7,7 +7,7 @@ nginx:
     - name: nginx
   service.running:
     - enable: True
-    - reuire:
+    - require:
       - pkg: nginx
     - watch:
       - cmd: nginx-configtest
