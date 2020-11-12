@@ -1,0 +1,5 @@
+{## Start with  defaults from defaults.sls ##}
+{% import_yaml 'gitea/defaults.yaml' as default_settings %}
+
+{## Merge in gitea:lookup pillar ##}
+{% set gitea = salt['pillar.get']('node:gitea', default=default_settings.gitea, merge=True) %}

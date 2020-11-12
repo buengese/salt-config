@@ -1,0 +1,26 @@
+gitea:
+  config: '/etc/gitea/app.ini'
+  service:
+    name: gitea
+  version: "1.13"
+  sha256: "todo"
+  database:
+    type: mysql
+    host: 127.0.0.1:3306
+    name: gitea
+    user: gitea
+    password: secretPassword
+  repository:
+    root: /home/git/gitea-repositories
+  server:
+    domain: git.bmn.net
+    http_port: 80
+    root_url: http://git.bmn.net:80/
+    ssh_port: 22
+  mailer:
+    enable: "false"
+  mirror:
+    update_cron: "@every 1h"
+    migrate_timeout: 3600
+    mirror_timeout: 3600
+

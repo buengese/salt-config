@@ -7,7 +7,7 @@ base:
       - bash
 
     # Debian specific apt - certs to be moved
-    'os_family:Debian'
+    'os_family:Debian':
       - apt
       - unattended-upgrades
       - certs

@@ -12,3 +12,5 @@ base:
       - nodes.irc
     'dns-secure*':
       - nodes.dns-secure
+    'git*':
+      - nodes.git
