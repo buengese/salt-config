@@ -35,7 +35,7 @@ ssh-{{ user }}:
 
 {{ path }}/.ssh/authorized_keys:
   file.managed:
-    - source: salt://users/authorized_keys.tmpl
+    - source: salt://users/authorized_keys.j2
     - template: jinja
       username: {{ user }}
     - user: {{ user }}

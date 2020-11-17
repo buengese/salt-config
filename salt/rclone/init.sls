@@ -30,7 +30,7 @@ rclone:
 
 {{ path }}/.config/rclone/rclone.conf:
   file.managed:
-    - source: salt://rclone/rclone.conf.tmpl
+    - source: salt://rclone/rclone.conf.j2
     - template: jinja
     - user: {{ user }}
     - mode: 750

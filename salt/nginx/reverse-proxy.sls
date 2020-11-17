@@ -8,7 +8,7 @@ include:
 {% set domain = pillar['node']['reverse_proxy']['domain'] %}
 /etc/nginx/sites-available/{{ domain }}:
   file.managed:
-    - source: salt://nginx/reverse_proxy.tmpl
+    - source: salt://nginx/reverse_proxy.j2
     - template: jinja
     - user: root
     - group: root
