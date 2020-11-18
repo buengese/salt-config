@@ -24,9 +24,18 @@ base:
       - thelounge
       - nginx.reverse-proxy
 
+    # DNS server for secure lan
     'dns-secure*':
       - unbound
 
+    # Gitea instance
+    'git*':
+      - gitea
+
     # Salt-SSH - no grain targeting
     'thorium*':
+      - timezone
+      - ssh
+      - users
+      - bash
       - blacklist
