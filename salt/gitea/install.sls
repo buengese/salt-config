@@ -5,7 +5,7 @@ git:
   user.present:
     - system: True 
     - home: /home/git
-    - shell: /usr/sbin/nologin
+    - shell: /bin/bash
     - require:
         - group: git
   group.present:
