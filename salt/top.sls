@@ -11,6 +11,8 @@ base:
       - apt
       - unattended-upgrades
       - certs
+      - tmux
+      - screen
 
     # Node specific stuff
     # Unifi controller
