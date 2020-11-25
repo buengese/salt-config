@@ -9,8 +9,8 @@ base:
     # Debian specific apt - certs to be moved
     'os_family:Debian':
       - match: grain
-    #  - apt
-    #  - unattended-upgrades
+      - apt
+      - unattended-upgrades
       - certs
       - tmux
       - screen
@@ -34,6 +34,11 @@ base:
     # Gitea instance
     'git*':
       - gitea
+
+    'omv*':
+      - exclude:
+        - sls: apt
+        - sls: unatended-upgrades
 
     # Salt-SSH - no grain targeting
     'thorium*':
