@@ -15,6 +15,7 @@ Unattended-Upgrade::Origins-Pattern {
         "o=Debian Backports,n=buster-backports,l=Debian Backports";
         "origin=Debian,archive=stable,label=Debian-Security";
         "origin=Debian,archive=oldstable,label=Debian-Security";
+        "o=SaltStack";
 };
 
 // List of packages to not update
