@@ -1,3 +1,5 @@
 salt:
   master_ip: 127.0.0.1
+  master_host: salt
+  master_finger: "5c:cf:47:b8:6b:51:ff:ef:04:4d:68:93:6d:f8:b7:ac:e5:83:03:fc:58:d6:c6:4b:c8:7a:27:6a:b4:6f:fd:9e"
 

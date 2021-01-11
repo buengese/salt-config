@@ -17,6 +17,9 @@ base:
 
     # Node specific stuff
     # Unifi controller
+    'salt*':
+      - salt.master
+    
     'unifi*':
       - unifi
       - nginx.reverse-proxy
@@ -40,10 +43,3 @@ base:
         - sls: apt
         - sls: unatended-upgrades
 
-    # Salt-SSH - no grain targeting
-    'thorium*':
-      - timezone
-      - ssh
-      - users
-      - bash
-      - blacklist
