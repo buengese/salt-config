@@ -1,4 +1,4 @@
-{% from "ssh/map.jinja" import salt with context %}
+{% from "salt/map.jinja" import salt with context %}
  # salt master config
  
 salt-master:
