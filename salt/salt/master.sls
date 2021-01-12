@@ -9,10 +9,10 @@ salt-master:
         - require:
             - pkg: salt-master
 
-git -C /srv/salt pull -q:
-    cron.present:
-        - user: root
-        - minute: '"/5'
+#git -C /srv/salt pull -q:
+#    cron.present:
+#        - user: root
+#        - minute: '"/5'
         
 /etc/salt/master:
     file.managed:

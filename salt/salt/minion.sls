@@ -9,7 +9,7 @@ salt-minion:
         - require:
             - pkg: salt-minion 
 
-/etc/salt/master:
+/etc/salt/minion:
     file.managed:
         - user: root
         - group: root
