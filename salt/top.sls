@@ -14,9 +14,13 @@ base:
       - certs
       - tmux
       - screen
+      - salt.minion
 
     # Node specific stuff
     # Unifi controller
+    'iridium*:
+      - salt.master
+    
     'salt*':
       - salt.master
     
