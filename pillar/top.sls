@@ -14,3 +14,5 @@ base:
       - nodes.dns-secure
     'git*':
       - nodes.git
+    'iridium*':
+      - nodes.iridium

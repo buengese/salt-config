@@ -17,13 +17,13 @@ base:
       - salt.minion
 
     # Node specific stuff
-    # Unifi controller
-    'iridium*:
+    'iridium*':
       - salt.master
     
     'salt*':
       - salt.master
-    
+
+    # Unifi controller
     'unifi*':
       - unifi
       - nginx.reverse-proxy
