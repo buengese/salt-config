@@ -89,5 +89,5 @@ Subsystem sftp /usr/lib/openssh/sftp-server
 UsePAM yes
 
 # HeJ: restrict cipher+mac to only allow non-CBC ones
-Ciphers aes128-ctr,aes192-ctr,aes256-ctr,arcfour256,arcfour128,arcfour
-MACs hmac-sha1,umac-64@openssh.com,hmac-sha2-256,hmac-sha2-512,hmac-ripemd160,hmac-ripemd160@openssh.com
+Ciphers aes128-ctr,aes192-ctr,aes256-ctr
+MACs hmac-sha2-256,hmac-sha2-512,umac-64-etm@openssh.com,umac-128-etm@openssh.com
