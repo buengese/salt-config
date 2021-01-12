@@ -1,3 +1,4 @@
+# Install MySQL and pymysql to allow management via salt
 
 mysql:
   pkg.installed:
