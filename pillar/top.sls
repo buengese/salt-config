@@ -16,3 +16,5 @@ base:
       - nodes.git
     'iridium*':
       - nodes.iridium
+    'radon.rc8.eu':
+      - nodes.radon
