@@ -1,0 +1,4 @@
+{% import_yaml 'matrix-synapse/defaults.yaml' as default_settings %}
+
+{## Merge in matrix:lookup pillar ##}
+{% set matrix = salt['pillar.get']('node:matrix', default=default_settings.matrix, merge=True) %}

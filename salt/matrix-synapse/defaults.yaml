@@ -1,0 +1,14 @@
+matrix:
+  server_name: example.com
+  host: matrix.example.com
+  port: 8008
+  tls_port: 8448
+  reverse_proxy: True
+  media_store_path: "/var/lib/matrix-synapse/media"
+  uploads_path: "/var/lib/matrix-synapse/uploads"
+  database:
+    type: psycopg2 # alternative sqlite3
+    host: ::1
+    name: synapse
+    user: synapse
+  

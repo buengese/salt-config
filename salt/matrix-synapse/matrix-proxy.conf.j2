@@ -1,0 +1,32 @@
+{% from "matrix-synapse/map.jinja" import matrix with context %}
+
+server {
+	listen 80;
+	
+	server_name {{ matrix.host }};
+	return 301 https://$server_name$request_uri;
+}
+
+server {
+	listen 443 ssl;
+	listen [::]:443 ssl;
+
+    listen {{ matrix.tls_port }} ssl;
+    listen [::]:{{ matrix.tls_port }} ssl;
+
+    server_name {{ matrix.host }};
+
+	ssl_certificate /etc/letsencrypt/live/{{ matrix.host }}/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/{{ matrix.host }}/privkey.pem;
+
+    location ~* ^(\/_matrix|\/_synapse\/client) {
+		proxy_pass http://localhost:8008;
+		proxy_set_header X-Forwarded-For $remote_addr;
+		
+		client_max_body_size 50M;
+	}
+
+	location / {
+		return 301 https://$server_name/_matrix/static/;
+	}
+}
