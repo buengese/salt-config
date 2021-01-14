@@ -5,7 +5,7 @@
 include: 
   - nginx.base
 
-{% set domain = pillar['node']['reverse_proxy']['domain'] %}
+{% set domain = pillar['reverse_proxy']['domain'] %}
 /etc/nginx/sites-available/{{ domain }}:
   file.managed:
     - source: salt://nginx/reverse_proxy.j2

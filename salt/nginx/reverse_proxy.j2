@@ -1,8 +1,8 @@
 #
 # Reverse Proxy (Salt managed)
 #
-{% set domain = salt['pillar.get']('node:reverse_proxy:domain') %}
-{% set proxy_pass = salt['pillar.get']('node:reverse_proxy:proxy_pass') %}
+{% set domain = salt['pillar.get']('reverse_proxy:domain') %}
+{% set proxy_pass = salt['pillar.get']('reverse_proxy:proxy_pass') %}
 server {
     listen 80;
     server_name _;

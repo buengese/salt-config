@@ -1,3 +1,3 @@
-{% set pgsql = salt['pillar.get']('node:postgres', default={
+{% set pgsql = salt['pillar.get']('postgres', default={
     "version": 12
 }, merge=True) %}

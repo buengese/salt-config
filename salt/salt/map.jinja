@@ -3,4 +3,4 @@
 
 {% import_yaml 'salt/defaults.yaml' as default_settings %}
 # merge with node specific settings from pillar
-{% set salt = salt['pillar.get']('node:salt', default=default_settings.salt, merge=True) %}
+{% set salt = salt['pillar.get']('salt', default=default_settings.salt, merge=True) %}

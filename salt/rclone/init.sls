@@ -5,7 +5,7 @@ rclone:
     - sources:
         - rclone: {{ rclone.pkg }}
 
-{% set user = pillar['node']['rclone']['user'] %}
+{% set user = pillar['rclone']['user'] %}
 {% set path = '/' + user %}
 {% if user not in ['root'] %}
   {% set path = '/home' + path %}

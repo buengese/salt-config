@@ -216,5 +216,5 @@ include: /usr/local/etc/unbound/domainoverrides.conf
 # forwarding
 forward-zone:
 	name: "."
-	forward-addr: {{ salt['pillar.get']('node:unbound:upstream_dns') }}
+	forward-addr: {{ salt['pillar.get']('unbound:upstream_dns') }}
 
