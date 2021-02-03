@@ -23,7 +23,11 @@ base:
     'salt.bmn.net':
       - salt.master
 
-    # Unifi controller
+    'francium.bngs.io':
+      - nginx.base
+      - letsencrypt
+ 
+   # Unifi controller
     'unifi*':
       - unifi
       - nginx.reverse-proxy
@@ -41,9 +45,4 @@ base:
     # Gitea instance
     'git*':
       - gitea
-
-    'omv*':
-      - exclude:
-        - sls: apt
-        - sls: unatended-upgrades
 
