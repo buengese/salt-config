@@ -18,3 +18,5 @@ base:
       - nodes.iridium
     'radon.rc8.eu':
       - nodes.radon
+    'francium.bngs.io':
+      - nodes.francium

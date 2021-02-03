@@ -17,10 +17,10 @@ base:
       - salt.minion
 
     # Node specific stuff
-    'iridium*':
+    'iridium.bngs.io':
       - salt.master
     
-    'salt*':
+    'salt.bmn.net':
       - salt.master
 
     # Unifi controller
