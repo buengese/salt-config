@@ -19,7 +19,7 @@ server {
 	listen 443 ssl;
 	listen [::]:443 ssl;
 	
-	server {{ " ".join(domainlist) }};
+	server_name {{ " ".join(domainlist) }};
 
 	ssl_certificate /etc/letsencrypt/live/{{ setname }}/fullchain.pem;
 	ssl_certificate_key /etc/letsencrypt/live/{{ setname }}/privkey.pem;
@@ -39,7 +39,7 @@ server {
 		root /var/www/{{ setname }}/;
 	}
 
-	# we only serve http here
+	# we only serve https here
 	location / {
 		return 403;
 	}        

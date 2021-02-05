@@ -7,6 +7,7 @@ nginx:
     - name: nginx
   service.running:
     - enable: True
+    - reload: True
     - require:
       - pkg: nginx
     - watch:
@@ -14,7 +15,7 @@ nginx:
 
 /etc/nginx/nginx.conf:
   file.managed:
-    - source: salt://nginx/nginx.conf
+    - source: salt://nginx/files/nginx.conf
     - watch_in:
       - cmd: nginx-configtest
 

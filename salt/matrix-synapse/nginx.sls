@@ -1,7 +1,7 @@
 {% from "matrix-synapse/map.jinja" import matrix with context %}
 
 include: 
-  - nginx.base
+  - nginx.install
 
 /etc/nginx/sites-available/{{ matrix.host }}.conf:
   file.managed:

@@ -3,12 +3,12 @@
 #
 
 include: 
-  - nginx.base
+  - nginx.install
 
 {% set domain = pillar['reverse_proxy']['domain'] %}
 /etc/nginx/sites-available/{{ domain }}:
   file.managed:
-    - source: salt://nginx/reverse_proxy.j2
+    - source: salt://nginx/files/reverse-proxy.conf.j2
     - template: jinja
     - user: root
     - group: root

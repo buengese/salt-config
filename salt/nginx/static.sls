@@ -1,11 +1,11 @@
 {% from "nginx/map.jinja" import nginx with context %}
 
 include:
-  - nginx.base
+  - nginx.install
 
 /etc/nginx/sites-available/default:
     file.managed:
-         - source: salt://nginx/default.conf
+         - source: salt://nginx/files/default.conf
          - user: root
          - group: root
          - mode: 644
@@ -20,7 +20,7 @@ include:
       - require:
         - file: /etc/nginx/sites-available/default
 
-{% for setname, domainlist in nginx.domainsets.items() %}
+{% for setname, contents in nginx.domainsets.items() %}
 /var/www/{{ setname }}:
     file.directory:
        - user: root
@@ -29,16 +29,22 @@ include:
 
 /etc/nginx/sites-available/{{ setname }}.conf:
     file.managed:
-         - source: salt://nginx/static-content.conf.j2
+{% if contents.park %}
+         - source: salt://nginx/files/cats.conf.j2
+{% else %}
+         - source: salt://nginx/files/static-content.conf.j2
+{% endif %}
          - template: jinja
          - user: root
          - group: root
          - mode: 644
          - require:
            - pkg: nginx
+         - watch_in:
+           - cmd: nginx-configtest
          - context:
-            setname: {{ setname }}
-            domainlist: {{ domainlist }}
+             setname: {{ setname }}
+             domainlist: {{ contents.domains }}
 
 /etc/nginx/sites-enabled/{{ setname }}.conf:
     file.symlink:
