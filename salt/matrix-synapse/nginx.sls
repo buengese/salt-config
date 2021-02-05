@@ -5,7 +5,7 @@ include:
 
 /etc/nginx/sites-available/{{ matrix.host }}.conf:
   file.managed:
-    - source: salt://matrix-synapse/matrix-proxy.conf.j2
+    - source: salt://matrix-synapse/files/matrix-proxy.conf.j2
     - template: jinja
     - user: root
     - group: root

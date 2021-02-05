@@ -23,6 +23,11 @@ base:
     'salt.bmn.net':
       - salt.master
 
+    # Matrix Server
+    'radon.rc8.eu':
+      - matrix-synapse
+
+    # Static web content 
     'francium.bngs.io':
       - letsencrypt
       - nginx.static

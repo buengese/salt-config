@@ -2,7 +2,7 @@
 
 /etc/matrix-synapse/homeserver.yaml:
     file.managed:
-        - source: salt://matrix-synapse/homeserver.yaml.j2
+        - source: salt://matrix-synapse/files/homeserver.yaml.j2
         - template: jinja
         - user: root
         - group: root
@@ -10,7 +10,7 @@
 
 /etc/matrix-synapse/conf.d/server_name.yaml:
     file.managed:
-        - source: salt://matrix-synapse/server_name.yaml.j2
+        - source: salt://matrix-synapse/files/server_name.yaml.j2
         - template: jinja
         - user: root
         - group: root

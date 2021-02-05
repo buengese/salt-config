@@ -6,7 +6,7 @@ matrix-org:
   pkgrepo.managed:
     - humanname: matrix-org
     - name: deb https://packages.matrix.org/debian/ {{ grains.oscodename }} main
-    - key_url: salt://matrix-synapse/matrix-org-archive-keyring.gpg
+    - key_url: salt://matrix-synapse/files/matrix-org-archive-keyring.gpg
     - file: /etc/apt/sources.list.d/matrix-org.list
     - clean_file: True
     - refresh: True
