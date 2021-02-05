@@ -1,0 +1,47 @@
+{%- if salt['file.file_exists']('/etc/letsencrypt/live/' ~ setname ~ '/fullchain.pem') %}
+server {
+	listen 80;
+        listen [::]:80;
+	server_name {{ " ".join(domainlist) }};
+	
+	# always let Let's Encrypt access via HTTP to get update cert
+	location ^~ /.well-known/acme-challenge/ {
+		root /var/www/{{ setname }};
+	}
+	
+	# enforce https
+	location / {
+		return 301 https://$server_name$request_uri;
+	}
+}
+
+server {
+	listen 443 ssl;
+	listen [::]:443 ssl;
+	
+	server {{ " ".join(domainlist) }};
+
+	ssl_certificate /etc/letsencrypt/live/{{ setname }}/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/{{ setname }}/privkey.pem;
+
+	# todo add ssl params here
+
+	root /var/www/{{ setname }};
+	index index.html;
+}
+{%- else %}
+server {
+	listen 80;
+	server_name {{ " ".join(domainlist) }};
+
+	# always let let's encrypt go through
+	location ^~ /.well-known/acme-challenge/ {
+		root /var/www/{{ setname }}/;
+	}
+
+	# we only serve http here
+	location / {
+		return 403;
+	}        
+}
+{%- endif %}

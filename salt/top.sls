@@ -24,8 +24,8 @@ base:
       - salt.master
 
     'francium.bngs.io':
-      - nginx.base
       - letsencrypt
+      - nginx.static
  
    # Unifi controller
     'unifi*':

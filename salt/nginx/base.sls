@@ -18,11 +18,6 @@ nginx:
     - watch_in:
       - cmd: nginx-configtest
 
-/etc/nginx/sites-enabled/default:
-  file.absent:
-    - watch_in:
-      - cmd: nginx-configtest
-
 nginx-configtest:
   cmd.wait:
     - name: /usr/sbin/nginx -t

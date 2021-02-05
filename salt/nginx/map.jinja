@@ -1,0 +1,3 @@
+{% import_yaml 'nginx/defaults.yaml' as default_settings %}
+
+{% set nginx = salt['pillar.get']('nginx', default=default_settings.nginx, merge=True) %}
