@@ -25,9 +25,12 @@ server {
 	ssl_certificate_key /etc/letsencrypt/live/{{ setname }}/privkey.pem;
 
 	# todo add ssl params here
-
 	root /var/www/{{ setname }};
 	index index.html;
+
+	{%- if snips %}
+	{{ snips|base64_decode }}
+	{%- endif %}
 }
 {%- else %}
 server {

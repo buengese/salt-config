@@ -26,6 +26,7 @@ base:
     # Matrix Server
     'radon.rc8.eu':
       - matrix-synapse
+      - nginx.static
 
     # Static web content 
     'francium.bngs.io':

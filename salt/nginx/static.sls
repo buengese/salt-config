@@ -29,11 +29,11 @@ include:
 
 /etc/nginx/sites-available/{{ setname }}.conf:
     file.managed:
-{% if contents.park %}
+        {%- if contents.park %}
          - source: salt://nginx/files/cats.conf.j2
-{% else %}
+        {%- else %}
          - source: salt://nginx/files/static-content.conf.j2
-{% endif %}
+        {%- endif %}
          - template: jinja
          - user: root
          - group: root
@@ -42,9 +42,17 @@ include:
            - pkg: nginx
          - watch_in:
            - cmd: nginx-configtest
+         {%- if contents.get("snippets") != None %}
+         {%- set snips = contents.get("snippets")|base64_encode %}
          - context:
              setname: {{ setname }}
              domainlist: {{ contents.domains }}
+             snips: {{ snips }}
+         {%- else %}
+         - context:
+             setname: {{ setname }}
+             domainlist: {{ contents.domains }}
+         {%- endif %}
 
 /etc/nginx/sites-enabled/{{ setname }}.conf:
     file.symlink:

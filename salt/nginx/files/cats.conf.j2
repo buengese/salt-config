@@ -1,3 +1,4 @@
+{%- do salt.log.error('/etc/letsencrypt/live/' ~ setname ~ '/fullchain.pem') %}
 {%- if salt['file.file_exists']('/etc/letsencrypt/live/' ~ setname ~ '/fullchain.pem') %}
 server {
 	listen 80;
@@ -25,6 +26,9 @@ server {
 	ssl_certificate_key /etc/letsencrypt/live/{{ setname }}/privkey.pem;
 
 	# todo add ssl params here
+	{%- if snips %}
+        {{ snips|base64_decode }}
+        {%- endif %}
 
 	location / {
 		proxy_pass https://cataas.com/cat;
