@@ -1,0 +1,7 @@
+# -*- conding: utf-8 -*-
+# vim: ft=yaml
+---
+Debian:
+  pkg: salt-minion
+Arch:
+  pkg: salt-py3

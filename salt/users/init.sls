@@ -40,7 +40,7 @@ ssh-{{ user }}:
       username: {{ user }}
     - user: {{ user }}
 #   - group: {{ group }}
-    - mode: 644
+    - mode: 600
     - require:
       - file: {{ path }}/.ssh
 {% endfor %}
