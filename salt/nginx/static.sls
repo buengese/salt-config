@@ -59,4 +59,6 @@ include:
       - target: /etc/nginx/sites-available/{{ setname }}.conf
       - require:
         - file: /etc/nginx/sites-available/{{ setname }}.conf
+      - watch_in:
+        - cmd: nginx-configtest
 {% endfor %}

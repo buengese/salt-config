@@ -28,7 +28,7 @@ server {
 	root /var/www/{{ setname }};
 	index index.html;
 
-	{%- if snips %}
+	{%- if snips is defined %}
 	{{ snips|base64_decode }}
 	{%- endif %}
 }

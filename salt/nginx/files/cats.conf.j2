@@ -26,7 +26,7 @@ server {
 	ssl_certificate_key /etc/letsencrypt/live/{{ setname }}/privkey.pem;
 
 	# todo add ssl params here
-	{%- if snips %}
+	{%- if snips is defined %}
         {{ snips|base64_decode }}
         {%- endif %}
 
