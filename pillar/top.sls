@@ -4,8 +4,6 @@ base:
       - keys
     'salt*':
       - nodes.salt
-    'deb*':
-      - nodes.thorium
     'unifi*':
       - nodes.unifi
     'irc*':
@@ -14,7 +12,9 @@ base:
       - nodes.dns-secure
     'git*':
       - nodes.git
-    'iridium*':
+    'thorium.bngs.io':
+      - nodes.thorium
+    'iridium.bngs.io':
       - nodes.iridium
     'radon.rc8.eu':
       - nodes.radon
