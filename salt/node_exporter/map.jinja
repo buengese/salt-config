@@ -1,0 +1,10 @@
+{% set node_exporter = salt['grains.filter_by']({
+        'Debian': {
+                'pkg': 'prometheus-node-exporter',
+                'config': '/etc/default/prometheus-node-exporter'
+        },
+        'Arch': {
+                'pkg': 'prometheus-node-exporter',
+                'config': '/etc/conf.d/prometheus-node-exporter'
+        }
+}) %}

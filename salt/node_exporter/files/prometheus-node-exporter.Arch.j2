@@ -1,0 +1,2 @@
+{# this is supposd to fail if eth1 is not present #}
+NODE_EXPORTER_ARGS="--web.listen-address {{ grains['ip_interfaces']['eth1'][0] }}:9100"

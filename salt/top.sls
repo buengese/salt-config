@@ -15,6 +15,7 @@ base:
       - tmux
       - screen
       - salt.minion
+      - node_exporter
 
     # Node specific stuff
     'iridium.bngs.io':
@@ -32,6 +33,13 @@ base:
     'francium.bngs.io':
       - letsencrypt
       - nginx.static
+
+    # Turn Server
+    'thorium.bngs.io':
+      - coturn
+
+    'technetium.bngs.io':
+      - node_exporter
  
    # Unifi controller
     'unifi*':
